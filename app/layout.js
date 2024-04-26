@@ -1,5 +1,6 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
+import Siderbar from "@/components/Siderbar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -11,7 +12,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={`${inter.className} flex items-start h-screen overflow-hidden`}>
+        <Siderbar />
+        <main className="flex-grow">{children}</main>
+      </body>
     </html>
   );
 }
